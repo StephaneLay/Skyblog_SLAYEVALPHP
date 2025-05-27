@@ -1,0 +1,15 @@
+{
+    "name": "hb/skyblog_slayevalphp",
+    "autoload": {
+        "psr-4": {
+            "Hb\\SkyblogSlayevalphp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "StephaneLay",
+            "email": "stephane.lay@hotmail.fr"
+        }
+    ],
+    "require": {}
+}
