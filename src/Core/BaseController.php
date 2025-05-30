@@ -7,7 +7,7 @@ class BaseController{
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $this->doGet()->render();
         }else{
-            $this->doPost()->render();
+            //$this->doPost()->render();
         }
     }
 
