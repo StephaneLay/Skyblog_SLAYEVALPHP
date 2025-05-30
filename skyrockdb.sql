@@ -7,6 +7,8 @@ CREATE TABLE category (
     name VARCHAR(30) NOT NULL
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
+INSERT INTO category (name) VALUES  ("music"),("tecktonik"),("skate");
+
 DROP TABLE IF EXISTS publication;
 CREATE TABLE publication (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -16,6 +18,11 @@ CREATE TABLE publication (
     category_id INT NOT NULL,
     Foreign Key (category_id) REFERENCES category(id)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+INSERT INTO publication (title,img_url,content,category_id) VALUES
+("musikemo","assets/emo-skater.jpg","Mwa chui Faustine une émo trop dark kisifrot6pik",1),
+("tkkiller","assets/tecktonik-ravelations.jpg","KI veu vnir battle avec ns les pd",2),
+("sk8 4 life","assets/emo-skater.jpg","Ma vi c le sk8 et sourir à la mor",3);
 
 DROP TABLE IF EXISTS comment;
 CREATE TABLE comment (
