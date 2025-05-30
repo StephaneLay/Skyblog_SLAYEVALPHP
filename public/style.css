@@ -7,16 +7,27 @@ header{
     display: flex;
     justify-content: space-around;
     background-color: gray;
+    align-items: center;
 }
 
-header img{
-    height: 4rem;
+header >img{
+    height: 3rem;
+    width: 20%;
 }
 
 
 .search{
     display: flex;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
 }
+
+.search img{
+    height: 2rem;
+}
+
+
 
 
 body{
@@ -78,4 +89,10 @@ body{
     width: 300px;
     height: 300px;
     object-fit: cover;
+}
+
+.publication-footer{
+    display: flex;
+    justify-content: space-around;
+    padding: .5rem;
 }

@@ -43,6 +43,11 @@ class HomeView extends BaseView
                 </div>
                 <img src="' . $publication->getImgUrl() . '">
                 <p>' . $publication->getContent() . '</p>
+                <div class="publication-footer">
+                    <p>AJOUTER LES REACTIONS ICI</p>
+                    <a href="#">Lire les commentaires</a>
+                    <a href="#">Commenter</a>
+                </div>
             </article>';
         }
         ?>
@@ -52,7 +57,7 @@ class HomeView extends BaseView
         <p>nb articles : ?</p>
         <p>nb coms : ?</p>
         <p>nb reactions : ?</p>
-
+    
         <h2>RAJOUTER DES IMG ICI OU DES TAGS MOCHES</h2>
     </div>
     </div><?php
