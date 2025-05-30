@@ -52,7 +52,7 @@ body{
 }
 
 .article-container{
-    width: 60%;
+    width: 50%;
     margin: 0px 1rem;
     display: flex;
     flex-direction: column;
@@ -73,9 +73,10 @@ body{
     flex-direction: column;
     background-color: pink;
     margin: auto;
-    width: 50%;
     align-items: center;
     margin-bottom: 1rem;
+    padding: 1rem;
+    width: 70%;
 
 }
 
@@ -95,4 +96,5 @@ body{
     display: flex;
     justify-content: space-around;
     padding: .5rem;
+    width: 100%;
 }
