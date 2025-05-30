@@ -20,9 +20,9 @@ CREATE TABLE publication (
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 INSERT INTO publication (title,img_url,content,category_id) VALUES
-("musikemo","assets/punkette.jpg","Mwa chui Faustine une émo trop dark kisifrot6pik",1),
-("tkkiller","assets/tecktonik-ravelations.jpg","KI veu vnir battle avec ns les pd",2),
-("sk8 4 life","assets/emo-skater.jpg","Ma vi c le sk8 et sourir à la mor",3);
+("musikemo","assets/publications_img/punkette.jpg","Mwa chui Faustine une émo trop dark kisifrot6pik",1),
+("tkkiller","assets/publications_img/tecktonik-ravelations.jpg","KI veu vnir battle avec ns les pd",2),
+("sk8 4 life","assets/publications_img/emo-skater.jpg","Ma vi c le sk8 et sourir à la mor",3);
 
 DROP TABLE IF EXISTS comment;
 CREATE TABLE comment (
