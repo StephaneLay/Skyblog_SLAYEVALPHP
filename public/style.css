@@ -1,0 +1,22 @@
+.publication{
+    display : flex;
+    flex-direction: column;
+    background-color: pink;
+    margin: auto;
+    width: 50%;
+    align-items: center;
+    margin-bottom: 1rem;
+
+}
+
+.publication-header{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.publication img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
