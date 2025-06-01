@@ -21,9 +21,11 @@ class BaseView{
                  </div>
             </header>
             <body>
+                <main>
               <?php
               $this->content();
               ?>
+            </main>
             </body>
             </html>
         <?php

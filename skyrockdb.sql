@@ -1,4 +1,4 @@
--- Active: 1748246424675@@localhost@3306@skyrock_db
+-- Active: 1748684265432@@localhost@3306
 
 
 DROP TABLE IF EXISTS category;
