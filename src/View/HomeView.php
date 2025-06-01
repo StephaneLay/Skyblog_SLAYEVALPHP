@@ -28,12 +28,19 @@ class HomeView extends BaseView
                     <img src="assets\global\rolling-stones.jpg" alt="logo-rollingstones">
                     <a href="#">Dark-emo</a>
                 </div>
-            <div class="user-description">
-                <h3>Description</h3>
-                <p>Kikoo mwa c Faustine mé vs pouvé mapl Faus' le rock domine le rap s'incline les beybey</p>
+                <div class="user-description">
+                    <h3>Description : </h3>
+                    <p>Kikoo mwa c Faustine mé vs pouvé mapl Faus' le rock domine le rap s'incline les beybey</p>
+                </div>
+                <div class="usernav">
+                    <ul>
+                        <li><a href="#">Ecrire un message</a></li>
+                        <li><a href="#">Ajouter à mes amis</a></li>
+                        <li><a href="#">Fais tourner ce blog</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="article-container"><?php
+            <div class="article-container"><?php
             foreach ($this->publications as $publication) {
                 echo '
             <article class="publication">
@@ -43,26 +50,29 @@ class HomeView extends BaseView
                 </div>
                 <img src="' . $publication->getImgUrl() . '">
                 <p>' . $publication->getContent() . '</p>
-                <div class="publication-footer">
+                <div class="publication-com-section">
                     
                     <p>[<a href="#">Lire les commentaires</a>]</p>
                     <p>[<a href="#">Commenter</a>]</p>
                 </div>
+                <div class="publication-footer">
+                    <p>Posté le vendredi 21 juin 2014</p>
+                </div>
+                
             </article>';
-        }
-        ?>
+            }
+            ?>
+            </div>
+            <div class="infos-container">
+                <p>Date création : ?</p>
+                <p>nb articles : ?</p>
+                <p>nb coms : ?</p>
+                <p>nb reactions : ?</p>
+
+                <h2>RAJOUTER DES IMG ICI OU DES TAGS MOCHES</h2>
+            </div>
         </div>
-    <div class="infos-container">
-        <p>Date création : ?</p>
-        <p>nb articles : ?</p>
-        <p>nb coms : ?</p>
-        <p>nb reactions : ?</p>
-    
-        <h2>RAJOUTER DES IMG ICI OU DES TAGS MOCHES</h2>
-    </div>
-    </div><?php
+        <?php
     }
 }
 
-
-    
