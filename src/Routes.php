@@ -2,12 +2,14 @@
 
 namespace Hb\SkyblogSlayevalphp;
 
+use Hb\SkyblogSlayevalphp\Controller\AddComController;
 use Hb\SkyblogSlayevalphp\Controller\HomeController;
 
 class Routes{
     public static function defineRoutes(){
         return [
-            "/" => new HomeController()
+            "/" => new HomeController(),
+            "/add-com" => new AddComController()
         ];
     }
 }

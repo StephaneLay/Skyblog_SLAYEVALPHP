@@ -13,13 +13,7 @@ class Header{
                 <link rel="stylesheet" href="/style.css">
                 <title>Skyblog</title>
             </head>
-            <header>
-                <img src="assets\global\skyblog-logo.avif" alt="skyblog logo">
-                 <div class="search">
-                    <input type="text" name="search" >
-                    <button><img src="assets\global\recherche.png" alt=""></button>
-                 </div>
-            </header>
+            
             <body>
                 <main>
               <?php

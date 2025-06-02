@@ -20,6 +20,13 @@ class HomeView extends BaseView
     public function content()
     {
         ?>
+        <header>
+                <img src="assets\global\skyblog-logo.avif" alt="skyblog logo">
+                 <div class="search">
+                    <input type="text" name="search" >
+                    <button><img src="assets\global\recherche.png" alt=""></button>
+                 </div>
+            </header>
         <div class="blog-container">
             <div class="user-container">
                 <h2>Blog</h2>
@@ -52,8 +59,11 @@ class HomeView extends BaseView
                 <p>' . $publication->getContent() . '</p>
                 <div class="publication-com-section">
                     
-                    <div class="comment-banner">[<img src="assets\global\addcom.png" alt="Ajouter un commentaire"><a href="#">Ajouter un commentaire</a>]</div>
-                    <div class="comment-banner">[<img src="assets\global\readcoms.png" alt="Lire commentaires"><a href="#">0 commentaires</a>]</div>
+                <div class="comment-banner">[<img src="assets/global/addcom.png" alt="Ajouter un commentaire">
+                <a href="#" onclick="window.open(\'/add-com?id=' . $publication->getId() . '\', \'popup\', \'width=600,height=400\'); return false;">Ajouter un commentaire</a>]
+                </div>
+                    <div class="comment-banner">[<img src="assets\global\readcoms.png" alt="Lire commentaires">
+                    <a href="#" target="_blank">0 commentaires</a>]</div>
                 </div>
                 <div class="publication-footer">
                     <p>Posté le vendredi 21 juin 2014</p>

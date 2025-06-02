@@ -192,3 +192,14 @@ main {
     text-align: left;
     background-color: var(--secondary-color);
 }
+
+.addcom-form{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+}
+
+.addcom-form > *{
+    margin-bottom: 2rem;
+}
+
