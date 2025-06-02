@@ -52,8 +52,8 @@ class HomeView extends BaseView
                 <p>' . $publication->getContent() . '</p>
                 <div class="publication-com-section">
                     
-                    <p>[<a href="#">Lire les commentaires</a>]</p>
-                    <p>[<a href="#">Commenter</a>]</p>
+                    <div class="comment-banner">[<img src="assets\global\addcom.png" alt="Ajouter un commentaire"><a href="#">Ajouter un commentaire</a>]</div>
+                    <div class="comment-banner">[<img src="assets\global\readcoms.png" alt="Lire commentaires"><a href="#">0 commentaires</a>]</div>
                 </div>
                 <div class="publication-footer">
                     <p>Posté le vendredi 21 juin 2014</p>

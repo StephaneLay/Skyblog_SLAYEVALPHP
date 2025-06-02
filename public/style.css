@@ -169,8 +169,22 @@ main {
 .publication-com-section {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding: .5rem;
     width: 100%;
+}
+
+.comment-banner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.comment-banner img{
+    width: 1rem;
+    height: 1rem;
+    margin-right: .5rem;
 }
 
 .publication-footer {

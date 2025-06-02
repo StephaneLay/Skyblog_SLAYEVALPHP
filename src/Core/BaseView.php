@@ -2,33 +2,18 @@
 
 namespace Hb\SkyblogSlayevalphp\Core;
 
+use Hb\SkyblogSlayevalphp\View\Part\Footer;
+use Hb\SkyblogSlayevalphp\View\Part\Header;
+
 class BaseView{
     public function render(){
-        ?>
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="stylesheet" href="/style.css">
-                <title>Skyblog</title>
-            </head>
-            <header>
-                <img src="assets\global\skyblog-logo.avif" alt="skyblog logo">
-                 <div class="search">
-                    <input type="text" name="search" >
-                    <button><img src="assets\global\recherche.png" alt=""></button>
-                 </div>
-            </header>
-            <body>
-                <main>
-              <?php
+              $header = new Header();
+              $footer = new Footer();
+
+              $header->render();
               $this->content();
-              ?>
-            </main>
-            </body>
-            </html>
-        <?php
+              $footer->render();
+            
     }
 
     public function content(){
