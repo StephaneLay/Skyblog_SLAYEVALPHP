@@ -191,6 +191,8 @@ main {
     width: 100%;
     text-align: left;
     background-color: var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
 }
 
 .addcom-form{

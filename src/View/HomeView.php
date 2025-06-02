@@ -66,7 +66,8 @@ class HomeView extends BaseView
                     <a href="#" target="_blank">0 commentaires</a>]</div>
                 </div>
                 <div class="publication-footer">
-                    <p>Posté le vendredi 21 juin 2014</p>
+                    <p>Posté le '.$publication->getCreationDate().'</p>
+                    <p>Modifié le '.$publication->getLastUpdate().'</p>
                 </div>
                 
             </article>';

@@ -15,7 +15,7 @@
 
         foreach ($preparedQuery->fetchAll() as  $line) {
             $publication = new Publication($line["title"],$line["img_url"],$line["content"],
-            new Category($line["name"],$line["category_id"]),$line["id"]);
+            new Category($line["name"],$line["category_id"]),$line["creation_date"],$line["id"]);
             $list[] = $publication;
         }
         return $list;
