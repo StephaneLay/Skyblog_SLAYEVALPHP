@@ -213,3 +213,8 @@ main {
     margin-bottom: 2rem;
 }
 
+.add-publi-form{
+    display: flex;
+    flex-direction: column;
+}
+
