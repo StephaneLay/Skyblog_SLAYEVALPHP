@@ -10,6 +10,7 @@ use Hb\SkyblogSlayevalphp\View\HomeView;
 class HomeController extends BaseController{
 
     protected function doGet(): BaseView{
+        //ON DEVRA PEUT ETRE LIMITER LES RESULTATS AUX REQUETES DE 
         $publiRepo = new PublicationRepo();
         return new HomeView($publiRepo->findAll());
     }

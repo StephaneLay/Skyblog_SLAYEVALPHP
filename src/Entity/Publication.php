@@ -16,6 +16,8 @@ class Publication
     private string $creationDate;
     private string $lastUpdate;
 
+    private int $commentAmount;
+
     private Category $category;
     public function getId(): int {return $this->id;}
 
@@ -30,6 +32,7 @@ class Publication
 	public function getLastUpdate(): string {return $this->lastUpdate;}
 
 	public function getCategory(): Category {return $this->category;}
+	public function getCommentAmount(): int {return $this->commentAmount;}
 
 	public function setId(int $id): void {$this->id = $id;}
 
@@ -41,9 +44,12 @@ class Publication
 
 	public function setCreationDate(string $creationDate): void {$this->creationDate = $creationDate;}
 
+    public function setCommentAmount(int $commentAmount): void {$this->commentAmount = $commentAmount;}
 
 
-    public function __construct(string $title, string $img_url, string $content, Category $category,$creationDate, ?int $id = null)
+
+
+    public function __construct(string $title, string $img_url, string $content, Category $category,$creationDate,int $commentAmount, ?int $id = null)
     {
         $this->title = $title;
         $this->img_url = $img_url;
@@ -51,6 +57,7 @@ class Publication
         $this->category = $category;
         $this->creationDate = $creationDate;
         $this->lastUpdate = $creationDate;
+        $this->commentAmount = $commentAmount;
         $this->id = $id;
     }
 

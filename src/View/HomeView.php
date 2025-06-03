@@ -63,7 +63,7 @@ class HomeView extends BaseView
                 <a href="#" onclick="window.open(\'/add-com?id=' . $publication->getId() . '\', \'popup\', \'width=600,height=400\'); return false;">Ajouter un commentaire</a>]
                 </div>
                     <div class="comment-banner">[<img src="assets\global\readcoms.png" alt="Lire commentaires">
-                    <a href="#" target="_blank">0 commentaires</a>]</div>
+                    <a href="#" target="_blank">'.$publication->getCommentAmount().' commentaires</a>]</div>
                 </div>
                 <div class="publication-footer">
                     <p>Posté le '.$publication->getCreationDate().'</p>

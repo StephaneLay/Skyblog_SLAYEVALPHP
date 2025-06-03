@@ -7,7 +7,7 @@ class BaseController{
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $this->doGet()->render();
         }else{
-            //$this->doPost()->render();
+            $this->doPost()->render();
         }
     }
 
@@ -16,6 +16,6 @@ class BaseController{
     }
 
     protected function doPost(){
-        throw new \Exception("Controller does not have a doPost");
+        return new BaseView();
     }
 }

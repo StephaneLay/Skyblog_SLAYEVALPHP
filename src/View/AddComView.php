@@ -7,7 +7,7 @@ use Hb\SkyblogSlayevalphp\Core\BaseView;
 class AddComView extends BaseView{
     public function content(){
         ?>
-        <form class="addcom-form" action="" method="post">
+        <form class="addcom-form"  method="post">
             <label for="username">Your name</label>
             <input type="text" name="username" value="Visiteur" id="username">
             <label for="content">Your comment</label>
