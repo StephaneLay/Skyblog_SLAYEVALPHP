@@ -4,6 +4,7 @@ namespace Hb\SkyblogSlayevalphp\View;
 
 use Hb\SkyblogSlayevalphp\Core\BaseView;
 use Hb\SkyblogSlayevalphp\Entity\Publication;
+use Hb\SkyblogSlayevalphp\View\Part\NavBar;
 
 class HomeView extends BaseView
 {
@@ -21,14 +22,10 @@ class HomeView extends BaseView
     }
     public function content()
     {
+        $navbar = new NavBar();
+        $navbar->render();
         ?>
-        <header>
-            <img src="assets\global\skyblog-logo.avif" alt="skyblog logo">
-            <div class="search">
-                <input type="text" name="search">
-                <button><img src="assets\global\recherche.png" alt=""></button>
-            </div>
-        </header>
+        
         <div class="blog-container">
             <div class="user-container">
                 <h2>Blog</h2>
@@ -65,8 +62,14 @@ class HomeView extends BaseView
                 <div class="comment-banner">[<img src="assets/global/addcom.png" alt="Ajouter un commentaire">
                 <a href="#" onclick="window.open(\'/add-com?id=' . $publication->getId() . '\', \'popup\', \'width=600,height=400\'); return false;">Ajouter un commentaire</a>]
                 </div>
-                    <div class="comment-banner">[<img src="assets\global\readcoms.png" alt="Lire commentaires">
-                    <a href="#" onclick="window.open(\'/list-coms?id=' . $publication->getId() . '\', \'popup\', \'width=600,height=400\'); return false;">' . $publication->getCommentAmount() . ' commentaires</a>]</div>
+                    <div class="comment-banner">[<img src="assets\global\readcoms.png" alt="Lire commentaires">';
+                    if ($publication->getCommentAmount() > 0) {
+                        echo '<a href="#" onclick="window.open(\'/list-coms?id=' . $publication->getId() . '\', \'popup\', \'width=600,height=400\'); return false;">' . $publication->getCommentAmount() . ' commentaires</a>]</div>';
+
+                    } else {
+                        echo '<a>0 commentaires</a>]</div>';
+                    }
+                    echo '
                 </div>
                 <div class="publication-footer">
                     <p>Posté le ' . $publication->getCreationDate() . '</p>

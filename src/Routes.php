@@ -3,6 +3,7 @@
 namespace Hb\SkyblogSlayevalphp;
 
 use Hb\SkyblogSlayevalphp\Controller\AddComController;
+use Hb\SkyblogSlayevalphp\Controller\AddPubliController;
 use Hb\SkyblogSlayevalphp\Controller\ComListController;
 use Hb\SkyblogSlayevalphp\Controller\HomeController;
 
@@ -11,7 +12,9 @@ class Routes{
         return [
             "/" => new HomeController(),
             "/add-com" => new AddComController(),
-            "/list-coms" => new ComListController()
+            "/list-coms" => new ComListController(),
+            "/new-publi" => new AddPubliController()
+
         ];
     }
 }

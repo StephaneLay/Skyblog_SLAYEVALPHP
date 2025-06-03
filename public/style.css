@@ -24,11 +24,19 @@ header>img {
     margin-right: 4rem;
 }
 
+header a{
+    text-decoration: none;
+    padding: 1rem;
+    color: white;
+    background-color: green;
+}
+
 
 .search {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 1rem;
 }
 
 .search input {
