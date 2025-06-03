@@ -2,9 +2,12 @@
 
 namespace Hb\SkyblogSlayevalphp\Repository;
 
+use Hb\SkyblogSlayevalphp\Entity\Comment;
+use Hb\SkyblogSlayevalphp\Entity\Publication;
+
 class CommentRepo
 {
-    public function addComment($username, $content, $publicationId)
+    public function addComment(string $username,string $content,int $publicationId)
     {
         $connection = Database::connect();
 
@@ -18,5 +21,33 @@ class CommentRepo
         $preparedQuery->execute();
     }
 
+    public function getCommentSum(): int{
+        $connection = Database::connect();
+
+        $preparedQuery = $connection->prepare("SELECT Count(*) AS count from comment");
+        $preparedQuery->execute();
+        $line = $preparedQuery->fetch();
+        return $line["count"];
+    }
+
+    public function getCommentsByPublicationId($publicationId){
+        $list = [];
+
+        $connection = Database::connect();
+        
+        $preparedQuery = $connection->prepare("SELECT * from comment where publication_id = :publicationId" );
+
+        $preparedQuery->bindValue(":publicationId",$publicationId);
+        $preparedQuery->execute();
+
+        foreach ($preparedQuery->fetchAll() as $line) {
+            
+            $comment = new Comment($line["user_name"],$line["content"]
+            ,$line["creation_date"],$publicationId);
+            $list[] = $comment;
+        }
+        return $list;
+
+    }
     
 }

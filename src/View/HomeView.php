@@ -12,21 +12,23 @@ class HomeView extends BaseView
      * @var Publication[]
      */
     private array $publications = [];
+    private int $commentSum;
 
-    public function __construct($publications)
+    public function __construct($publications, int $commentSum)
     {
         $this->publications = $publications;
+        $this->commentSum = $commentSum;
     }
     public function content()
     {
         ?>
         <header>
-                <img src="assets\global\skyblog-logo.avif" alt="skyblog logo">
-                 <div class="search">
-                    <input type="text" name="search" >
-                    <button><img src="assets\global\recherche.png" alt=""></button>
-                 </div>
-            </header>
+            <img src="assets\global\skyblog-logo.avif" alt="skyblog logo">
+            <div class="search">
+                <input type="text" name="search">
+                <button><img src="assets\global\recherche.png" alt=""></button>
+            </div>
+        </header>
         <div class="blog-container">
             <div class="user-container">
                 <h2>Blog</h2>
@@ -47,9 +49,10 @@ class HomeView extends BaseView
                     </ul>
                 </div>
             </div>
-            <div class="article-container"><?php
-            foreach ($this->publications as $publication) {
-                echo '
+            <div class="article-container">
+                <?php
+                foreach ($this->publications as $publication) {
+                    echo '
             <article class="publication">
                 <div class="publication-header">
                 <h2>' . $publication->getTitle() . '</h2>
@@ -63,27 +66,28 @@ class HomeView extends BaseView
                 <a href="#" onclick="window.open(\'/add-com?id=' . $publication->getId() . '\', \'popup\', \'width=600,height=400\'); return false;">Ajouter un commentaire</a>]
                 </div>
                     <div class="comment-banner">[<img src="assets\global\readcoms.png" alt="Lire commentaires">
-                    <a href="#" target="_blank">'.$publication->getCommentAmount().' commentaires</a>]</div>
+                    <a href="#" onclick="window.open(\'/list-coms?id=' . $publication->getId() . '\', \'popup\', \'width=600,height=400\'); return false;">' . $publication->getCommentAmount() . ' commentaires</a>]</div>
                 </div>
                 <div class="publication-footer">
-                    <p>Posté le '.$publication->getCreationDate().'</p>
-                    <p>Modifié le '.$publication->getLastUpdate().'</p>
+                    <p>Posté le ' . $publication->getCreationDate() . '</p>
+                    <p>Modifié le ' . $publication->getLastUpdate() . '</p>
                 </div>
                 
             </article>';
-            }
-            ?>
+                }
+                echo '
             </div>
             <div class="infos-container">
-                <p>Date création : ?</p>
-                <p>nb articles : ?</p>
-                <p>nb coms : ?</p>
-                <p>nb reactions : ?</p>
+                <p>Date création : 27.05.2004/p>
+                <p>nb articles : ' . count($this->publications) . '</p>
+        
+                <p>nb coms : ' . $this->commentSum . '</p>
+                
 
                 <h2>RAJOUTER DES IMG ICI OU DES TAGS MOCHES</h2>
             </div>
-        </div>
-        <?php
+        </div>';
+
     }
 }
 
