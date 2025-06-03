@@ -43,7 +43,7 @@ class CommentRepo
         foreach ($preparedQuery->fetchAll() as $line) {
             
             $comment = new Comment($line["user_name"],$line["content"]
-            ,$line["creation_date"],$publicationId);
+            ,$line["creation_date"],$publicationId,$line["id"]);
             $list[] = $comment;
         }
         return $list;

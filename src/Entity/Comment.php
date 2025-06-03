@@ -10,7 +10,7 @@ class Comment{
     private string $content;
     private string $creationDate;
 
-    private Publication $publication;
+    private int $publicationId;
     
     public function getId(): int {return $this->id;}
 
@@ -20,7 +20,7 @@ class Comment{
 
 	public function getCreationDate(): string {return $this->creationDate;}
 
-	public function getPublication(): Publication {return $this->publication;}
+	public function getPublicationId(): int {return $this->publicationId;}
 
 	public function setId(int $id): void {$this->id = $id;}
 
@@ -30,15 +30,15 @@ class Comment{
 
 	public function setCreationDate(string $creationDate): void {$this->creationDate = $creationDate;}
 
-	public function setPublication(Publication $publication): void {$this->publication = $publication;}
+	public function setPublication(int $publicationId): void {$this->publicationId = $publicationId;}
 
 	
 
-	public function __construct(string $username,string $content,string $creationDate,Publication $publication,?int $id =null) {
+	public function __construct(string $username,string $content,string $creationDate,int $publicationId,?int $id =null) {
         $this->username = $username;
         $this->content = $content;
         $this->creationDate = $creationDate;
-        $this->publication = $publication;
+        $this->publicationId = $publicationId;
         $this->id = $id;
     }
 }

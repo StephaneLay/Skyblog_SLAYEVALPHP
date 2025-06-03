@@ -22,7 +22,7 @@ class ComsListView extends BaseView
             echo '
             <article class="com">
                 <h2>'.$comment->getUsername().'</h2>
-                <p class>="com-content">'.$comment->getContent().'</p>
+                <p class="com-content">'.$comment->getContent().'</p>
                 <p class="com-date">'.$comment->getCreationDate().'</p>
             </article>';
 
