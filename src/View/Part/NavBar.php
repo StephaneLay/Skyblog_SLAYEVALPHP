@@ -11,6 +11,7 @@ class NavBar{
                 <button><img src="assets\global\recherche.png" alt=""></button>
             </div>
             <div class="buttons">
+                <a href="/">Home</a>
                 <a href="/new-publi">Ajouter un article</a>
                 <a href="">Gerer les publications</a>
             </div>

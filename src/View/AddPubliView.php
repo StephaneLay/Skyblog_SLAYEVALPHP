@@ -21,11 +21,11 @@ class AddPubliView extends BaseView
         $navbar = new NavBar();
         $navbar->render();
         echo '<h1>Add a new publication</h1>';
-        echo '<form class="add-publi-form" method="post">
+        echo '<form class="add-publi-form" enctype="multipart/form-data" method="post">
     <label for="Titre">Entrez un titre</label>
     <input type="text" name="titre">
     <label for="image">Ajoutez une image</label>
-    <input type="file" name="image">
+    <input type="file"  accept="image/*"  name="image">
     <label for="content">Ajoutez une image</label>
     <textarea name="content" ></textarea>
     <select name="category" >';
@@ -36,3 +36,5 @@ class AddPubliView extends BaseView
     </form>';
     }
 }
+?>
+<form action=""></form>

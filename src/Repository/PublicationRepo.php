@@ -21,4 +21,20 @@
         }
         return $list;
     }
+
+    public function persist(Publication $publication){
+        $connection = Database::connect();
+
+        $preparedQuery = $connection->prepare('INSERT INTO publication(title,img_url,content,creation_date,comment_count,category_id) 
+        VALUES(:titre,:url,:content,NOW(),0,:category_id)');
+
+        $preparedQuery->bindValue(":titre",$publication->getTitle());
+        $preparedQuery->bindValue(":url",$publication->getImgUrl());
+        $preparedQuery->bindValue(":content",$publication->getContent());
+        $preparedQuery->bindValue(":category_id",$publication->getCategory()->getId());
+
+        $preparedQuery->execute();
+
+ 
+    }
  }

@@ -6,7 +6,7 @@ use DateTime;
 
 class Publication
 {
-    private int $id;
+    private ?int $id;
     private string $title;
 
     private string $img_url;
@@ -19,7 +19,7 @@ class Publication
     private int $commentAmount;
 
     private Category $category;
-    public function getId(): int {return $this->id;}
+    public function getId(): ?int {return $this->id;}
 
 	public function getTitle(): string {return $this->title;}
 
@@ -34,7 +34,7 @@ class Publication
 	public function getCategory(): Category {return $this->category;}
 	public function getCommentAmount(): int {return $this->commentAmount;}
 
-	public function setId(int $id): void {$this->id = $id;}
+	public function setId(?int $id): void {$this->id = $id;}
 
 	public function setTitle(string $title): void {$this->title = $title;}
 

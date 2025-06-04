@@ -18,4 +18,14 @@ class CategoryRepo{
         }
         return $list;
     }
+
+    public function getCategoryById($id)  :Category{
+        $connection = Database::connect();
+
+        $preparedQuery = $connection->prepare("SELECT name FROM category where id=:id");
+        $preparedQuery->bindValue(":id",$id);
+        $preparedQuery->execute();
+
+        return new Category($preparedQuery->fetch()["name"],$id);
+    }
 }
