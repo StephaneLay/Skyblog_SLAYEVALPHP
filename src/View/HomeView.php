@@ -54,8 +54,12 @@ class HomeView extends BaseView
                 <div class="publication-header">
                 <h2>' . $publication->getTitle() . '</h2>
                 <p>' . $publication->getCategory()->getName() . '</p>
-                </div>
-                <img src="' . $publication->getImgUrl() . '">
+                </div>';
+                if (!empty($publication->getImgUrl())) {
+                    echo '<img src="' . $publication->getImgUrl() . '">';
+                }
+                echo '
+                
                 <p>' . $publication->getContent() . '</p>
                 <div class="publication-com-section">
                     

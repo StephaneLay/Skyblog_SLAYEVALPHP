@@ -9,27 +9,44 @@ use Hb\SkyblogSlayevalphp\Repository\CommentRepo;
 use Hb\SkyblogSlayevalphp\Repository\PublicationRepo;
 use Hb\SkyblogSlayevalphp\View\AddPubliView;
 
-class AddPubliController extends BaseController{
-    protected function doGet(): \Hb\SkyblogSlayevalphp\Core\BaseView{
+class AddPubliController extends BaseController
+{
+    protected function doGet(): \Hb\SkyblogSlayevalphp\Core\BaseView
+    {
         $categoryRepo = new CategoryRepo();
-        return new AddPubliView($categoryRepo->findAll());
+        return new AddPubliView($categoryRepo->findAll(), null);
     }
 
-    protected function doPost(){
-        
-        $filename = uniqid().".jpg";
-        if (!file_exists("uploads")) {
-             mkdir("uploads");
-        }
-        $path = "uploads/"."$filename";
-        move_uploaded_file($_FILES["image"]["tmp_name"],$path);
+    protected function doPost()
+    {
 
-        //2) TOUT INSERT EN SQL ENSUITE AVEC LE BON PATH PRECEDEMMENT RENSEIGNE
-
-        $publicationRepo = new PublicationRepo();
         $categoryRepo = new CategoryRepo();
-        $publicationRepo->persist(new Publication($_POST["titre"],$path,$_POST["content"],
-        $categoryRepo->getCategoryById($_POST["category"]),"",0));
-        return $this->doGet();
+        if (!isset($_POST["titre"]) || empty(trim($_POST["titre"]))) {
+            return new AddPubliView($categoryRepo->findAll(), "Vous devez rentrer un type !");
+        }
+        if (!isset($_POST["category"])) {
+            return new AddPubliView($categoryRepo->findAll(), "Vous devez selectionner une catégorie !");
+        }
+        if (!empty($_FILES["image"]["name"])) {
+            $filename = uniqid() . "." . pathinfo($_FILES["image"]["name"])["extension"];
+            if (!file_exists("uploads")) {
+                mkdir("uploads");
+            }
+            $path = "uploads/" . "$filename";
+            move_uploaded_file($_FILES["image"]["tmp_name"], $path);
+        }else {
+            $path = "";
+        }
+        $publicationRepo = new PublicationRepo();
+
+        $publicationRepo->persist(new Publication(
+            $_POST["titre"],
+            $path,
+            $_POST["content"],
+            $categoryRepo->getCategoryById($_POST["category"]),
+            "",
+            0
+        ));
+        return new AddPubliView($categoryRepo->findAll(), null);
     }
 }
