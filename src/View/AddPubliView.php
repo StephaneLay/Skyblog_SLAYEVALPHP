@@ -19,8 +19,9 @@ class AddPubliView extends BaseView
     }
     public function content()
     {
-        $navbar = new NavBar();
-        $navbar->render();
+        
+        // $navbar = new NavBar();
+        // $navbar->render();
         echo '<h1>Add a new publication</h1>';
         echo '<form class="add-publi-form" enctype="multipart/form-data" method="post">
     <label for="Titre">Entrez un titre*</label>

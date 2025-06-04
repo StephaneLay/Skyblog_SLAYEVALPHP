@@ -14,15 +14,17 @@ class HomeView extends BaseView
      */
     private array $publications = [];
     private int $commentSum;
+    private array $categories;
 
-    public function __construct($publications, int $commentSum)
+    public function __construct($publications, int $commentSum,$categories)
     {
         $this->publications = $publications;
         $this->commentSum = $commentSum;
+        $this->categories = $categories;
     }
     public function content()
     {
-        $navbar = new NavBar();
+        $navbar = new NavBar($this->categories);
         $navbar->render();
         ?>
         
