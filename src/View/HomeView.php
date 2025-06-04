@@ -16,18 +16,21 @@ class HomeView extends BaseView
     private int $commentSum;
     private array $categories;
 
+    private string|int|null $lastSearch;
+
     
 
-    public function __construct($publications, int $commentSum,$categories,)
+    public function __construct($publications, int $commentSum,$categories,string|int|null $lastSearch = null)
     {
         $this->publications = $publications;
         $this->commentSum = $commentSum;
         $this->categories = $categories;
+        $this->lastSearch = $lastSearch;
         
     }
     public function content()
     {
-        $navbar = new NavBar($this->categories);
+        $navbar = new NavBar($this->categories,true,$this->lastSearch);
         $navbar->render();
         ?>
         

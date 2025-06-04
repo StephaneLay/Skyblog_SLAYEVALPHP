@@ -20,12 +20,15 @@ class HomeController extends BaseController
         
         if (isset($_GET["search"]) && !empty(trim($_GET["search"]))) {
             $publications = $publiRepo->filterResults($_GET["search"]);
+            $lastSearch = $_GET["search"];
         }elseif (isset($_GET["category"])) {
             $publications = $publiRepo->findByCategoryId($_GET["category"]);
+            $lastSearch = $_GET["category"];
         }else {
             $publications = $publiRepo->findAll();
+            $lastSearch = null;
         }
-        return new HomeView($publications, $commentRepo->getCommentSum(), $categoryRepo->findAll());
+        return new HomeView($publications, $commentRepo->getCommentSum(), $categoryRepo->findAll(),$lastSearch);
     }
 
     
