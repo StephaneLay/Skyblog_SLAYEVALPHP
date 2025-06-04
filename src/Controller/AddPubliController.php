@@ -24,7 +24,7 @@ class AddPubliController extends BaseController
         if (!isset($_POST["titre"]) || empty(trim($_POST["titre"]))) {
             return new AddPubliView($categoryRepo->findAll(), "Vous devez rentrer un type !");
         }
-        if (!isset($_POST["category"])) {
+        if (!isset($_POST["category"]) || empty(trim($_POST["category"]))) {
             return new AddPubliView($categoryRepo->findAll(), "Vous devez selectionner une catégorie !");
         }
         if (!empty($_FILES["image"]["name"])) {

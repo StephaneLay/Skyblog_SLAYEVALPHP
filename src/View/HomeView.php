@@ -16,11 +16,14 @@ class HomeView extends BaseView
     private int $commentSum;
     private array $categories;
 
-    public function __construct($publications, int $commentSum,$categories)
+    
+
+    public function __construct($publications, int $commentSum,$categories,)
     {
         $this->publications = $publications;
         $this->commentSum = $commentSum;
         $this->categories = $categories;
+        
     }
     public function content()
     {

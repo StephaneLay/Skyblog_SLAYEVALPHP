@@ -19,9 +19,9 @@ class AddPubliView extends BaseView
     }
     public function content()
     {
+        $navbar = new NavBar($this->categories,false);
+        $navbar->render();
         
-        // $navbar = new NavBar();
-        // $navbar->render();
         echo '<h1>Add a new publication</h1>';
         echo '<form class="add-publi-form" enctype="multipart/form-data" method="post">
     <label for="Titre">Entrez un titre*</label>
@@ -31,7 +31,8 @@ class AddPubliView extends BaseView
     <label for="content">Ecrivez du contenu</label>
     <textarea name="content" ></textarea>
     <label for="category">Selectionnez une catégorie*</label>
-    <select name="category" >';
+    <select name="category" >
+    <option value="">--Choose category</option>';
         foreach ($this->categories as $category) {
             echo '<option value="' . $category->getId() . '">' . $category->getName() . '</option>';
         }
