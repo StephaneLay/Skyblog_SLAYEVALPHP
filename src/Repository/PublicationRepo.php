@@ -46,16 +46,23 @@ class PublicationRepo
         $preparedQuery->execute();
     }
 
-    public function filterResults(string $search){
+    public function addCommentCount($id){
+        $connection = Database::connect();
+
+         $preparedQuery = $connection->prepare('UPDATE publication SET comment_count = comment_count +1 where id = :id');
+         $preparedQuery->bindValue(":id",$id);
+         $preparedQuery->execute();
 
     }
 
-    public function findByCategory()
+    public function findByCategoryId($categoryId)
     {
         $list = [];
         $connection = Database::connect();
 
-        $preparedQuery = $connection->prepare("SELECT ");
+        $preparedQuery = $connection->prepare("SELECT * from publication LEFT JOIN category ON publication.category_id = category.id
+        where category_id = :categoryId");
+        $preparedQuery->bindValue(":categoryId",$categoryId);
         $preparedQuery->execute();
 
         foreach ($preparedQuery->fetchAll() as $line) {
@@ -65,7 +72,31 @@ class PublicationRepo
                 $line["content"],
                 new Category($line["name"], $line["category_id"]),
                 $line["creation_date"],
-                $line["amount"],
+                $line["comment_count"],
+                $line["id"]
+            );
+            $list[] = $publication;
+        }
+        return $list;
+    }
+
+    public function filterResults(string $search){
+        $list = [];
+        $connection = Database::connect();
+
+        $preparedQuery = $connection->prepare("select * from publication LEFT JOIN category ON publication.category_id = category.id where title 
+        LIKE :search OR content LIKE :search");
+        $preparedQuery->bindValue("search","%".$search."%");
+        $preparedQuery->execute();
+
+        foreach ($preparedQuery->fetchAll() as $line) {
+            $publication = new Publication(
+                $line["title"],
+                $line["img_url"],
+                $line["content"],
+                new Category($line["name"], $line["category_id"]),
+                $line["creation_date"],
+                $line["comment_count"],
                 $line["id"]
             );
             $list[] = $publication;

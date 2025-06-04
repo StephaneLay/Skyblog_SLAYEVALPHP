@@ -20,11 +20,11 @@ class NavBar
         <header>
             <img src="assets\global\skyblog-logo.avif" alt="skyblog logo">
             <div class="search">
-                <form class="searchbar" method="post">
+                <form class="searchbar" method="get">
                     <input type="text" name="search">
                     <button><img src="assets\global\recherche.png" alt=""></button>
                 </form>
-                <form class="filter" method="post">
+                <form class="filter" method="get">
                     <select name="category">';
                 </form>
             </div>
@@ -33,7 +33,7 @@ class NavBar
             foreach ($this->categories as $category) {
                 echo '<option value="' . $category->getId() . '">' . $category->getName() . '</option>';
             }
-            echo '</select><button>Ajouter article</button></form>';
+            echo '</select><button>Go</button></form>';
             ?>
             </div>
             <div class="buttons">

@@ -17,17 +17,16 @@ class HomeController extends BaseController
         $publiRepo = new PublicationRepo();
         $commentRepo = new CommentRepo();
         $categoryRepo = new CategoryRepo();
-
-        return new HomeView($publiRepo->findAll(), $commentRepo->getCommentSum(), $categoryRepo->findAll());
-    }
-
-    protected function doPost()
-    {
-        $publiRepo = new PublicationRepo();
-        $commentRepo = new CommentRepo();
-
-        if (isset($_POST["search"]) && !empty($_POST["search"])) {
-
+        
+        if (isset($_GET["search"]) && !empty(trim($_GET["search"]))) {
+            $publications = $publiRepo->filterResults($_GET["search"]);
+        }elseif (isset($_GET["category"])) {
+            $publications = $publiRepo->findByCategoryId($_GET["category"]);
+        }else {
+            $publications = $publiRepo->findAll();
         }
+        return new HomeView($publications, $commentRepo->getCommentSum(), $categoryRepo->findAll());
     }
+
+    
 }

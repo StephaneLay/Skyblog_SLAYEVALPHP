@@ -8,7 +8,7 @@ CREATE TABLE category (
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 INSERT INTO category (name) VALUES  ("music"),("tecktonik"),("skate");
-ç
+
 DROP TABLE IF EXISTS publication;
 CREATE TABLE publication (
     id INT PRIMARY KEY AUTO_INCREMENT,
