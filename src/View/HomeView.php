@@ -16,16 +16,19 @@ class HomeView extends BaseView
     private int $commentSum;
     private array $categories;
 
-    private string|int|null $lastSearch;
+    private string|null $lastSearch;
+
+    private int $publiSum;
 
     
 
-    public function __construct($publications, int $commentSum,$categories,string|int|null $lastSearch = null)
+    public function __construct($publications, int $commentSum,$categories,int $publiSum , string|null $lastSearch = null)
     {
         $this->publications = $publications;
         $this->commentSum = $commentSum;
         $this->categories = $categories;
         $this->lastSearch = $lastSearch;
+        $this->publiSum = $publiSum;
         
     }
     public function content()
@@ -94,7 +97,7 @@ class HomeView extends BaseView
             </div>
             <div class="infos-container">
                 <p>Date création : 27.05.2004/p>
-                <p>nb articles : ' . count($this->publications) . '</p>
+                <p>nb articles : ' . $this->publiSum . '</p>
         
                 <p>nb coms : ' . $this->commentSum . '</p>
                 

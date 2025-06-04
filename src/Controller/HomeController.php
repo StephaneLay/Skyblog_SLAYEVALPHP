@@ -28,7 +28,8 @@ class HomeController extends BaseController
             $publications = $publiRepo->findAll();
             $lastSearch = null;
         }
-        return new HomeView($publications, $commentRepo->getCommentSum(), $categoryRepo->findAll(),$lastSearch);
+        return new HomeView($publications, $commentRepo->getCommentSum(),
+         $categoryRepo->findAll(),$publiRepo->getPublicationSum(),$lastSearch);
     }
 
     

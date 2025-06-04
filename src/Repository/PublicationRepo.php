@@ -31,6 +31,15 @@ class PublicationRepo
         return $list;
     }
 
+    public function getPublicationSum(): int{
+        $connection = Database::connect();
+
+        $preparedQuery = $connection->prepare("SELECT Count(*) AS count from publication");
+        $preparedQuery->execute();
+        $line = $preparedQuery->fetch();
+        return $line["count"];
+    }
+
     public function persist(Publication $publication)
     {
         $connection = Database::connect();
