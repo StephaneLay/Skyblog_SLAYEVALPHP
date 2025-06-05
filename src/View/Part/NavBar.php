@@ -11,7 +11,7 @@ class NavBar
      * Summary of __construct
      * @param Category[] $categories
      */
-    public function __construct(private array $categories, private bool $searchbar = true, private null|string $lastSearch = "")
+    public function __construct(private ?array $categories, private bool $searchbar = true, private null|string $lastSearch = "")
     {
 
     }
@@ -48,7 +48,7 @@ class NavBar
             <div class="buttons">
                 <a href="/">Home</a>
                 <a href="/new-publi">Ajouter un article</a>
-                <a href="">Gerer les publications</a>
+                <a href="/manage-publi">Gerer les publications</a>
             </div>
         </header>
         <?php

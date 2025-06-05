@@ -6,6 +6,7 @@ use Hb\SkyblogSlayevalphp\Controller\AddComController;
 use Hb\SkyblogSlayevalphp\Controller\AddPubliController;
 use Hb\SkyblogSlayevalphp\Controller\ComListController;
 use Hb\SkyblogSlayevalphp\Controller\HomeController;
+use Hb\SkyblogSlayevalphp\Controller\ManagePubliController;
 
 class Routes{
     public static function defineRoutes(){
@@ -13,7 +14,9 @@ class Routes{
             "/" => new HomeController(),
             "/add-com" => new AddComController(),
             "/list-coms" => new ComListController(),
-            "/new-publi" => new AddPubliController()
+            "/new-publi" => new AddPubliController(),
+            "/manage-publi" => new ManagePubliController()
+
 
         ];
     }

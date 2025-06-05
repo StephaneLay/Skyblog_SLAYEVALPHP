@@ -217,3 +217,8 @@ main {
     flex-direction: column;
 }
 
+.publi-line{
+    display: flex;
+    justify-content: space-around;
+}
+
