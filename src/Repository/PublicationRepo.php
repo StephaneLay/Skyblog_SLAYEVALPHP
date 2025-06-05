@@ -128,6 +128,15 @@ class PublicationRepo
         return $list;
     }
 
+    public function deleteById($id){
+        $connection = Database::connect();
+
+        $preparedQuery = $connection->prepare(("DELETE from publication where id = :id"));
+        $preparedQuery->bindValue(":id",$id);
+
+        $preparedQuery->execute();
+    }
+
     public function filterResults(string $search)
     {
         $list = [];

@@ -14,14 +14,14 @@ class ManagePubliView extends BaseView{
     public function content(){
         $navbar = new NavBar([],false);
         $navbar->render();
-        echo '<form method="get">';
+        echo '<form method="post">';
         foreach ($this->publications as $publication) {
             echo '<div class="publi-line">
-            <input type="checkbox" name="check" >
-            <p>'.$publication->getTitle().'</p>
-            <p>'.$publication->getCategory()->getName().'</p>
-            <p>'.$publication->getCreationDate().'</p>
-            <p>'.$publication->getCommentAmount().'</p>
+            <input type="checkbox" id="'.$publication->getTitle().'" name="'.$publication->getTitle().'" value="'.$publication->getId().'" >
+            <label for="'.$publication->getTitle().'">'.$publication->getTitle().'</label>
+            <label for="'.$publication->getTitle().'">'.$publication->getCategory()->getName().'</label>
+            <label for="'.$publication->getTitle().'">'.$publication->getCreationDate().'</label>
+            <label for="'.$publication->getTitle().'">'.$publication->getCommentAmount().'</label>
             <a href="/update-publi?id='.$publication->getId().'">Modifier</a></div>';
         }
             

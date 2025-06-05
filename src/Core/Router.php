@@ -2,6 +2,8 @@
 
 namespace Hb\SkyblogSlayevalphp\Core;
 
+use Hb\SkyblogSlayevalphp\View\MessageView;
+
 class Router{
     private array $routes;
 
@@ -16,7 +18,8 @@ class Router{
                 $controller->processRequest();
                 return;
             }
-
         }
+        $messageView = new MessageView("Waw ! such empty");
+        $messageView->render();
     }
 }
