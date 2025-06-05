@@ -32,7 +32,7 @@ class AddPubliController extends BaseController
             if (!file_exists("uploads")) {
                 mkdir("uploads");
             }
-            $path = "uploads/" . "$filename";
+            $path = "uploads/" . $filename;
             move_uploaded_file($_FILES["image"]["tmp_name"], $path);
         }else {
             $path = "";

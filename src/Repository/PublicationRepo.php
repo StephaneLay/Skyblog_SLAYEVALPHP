@@ -37,20 +37,20 @@ class PublicationRepo
 
         $preparedQuery = $connection->prepare("SELECT * from publication LEFT JOIN category ON publication.category_id = category.id
         where publication.id = :id");
-        $preparedQuery->bindValue(":id",$id);
+        $preparedQuery->bindValue(":id", $id);
         $preparedQuery->execute();
 
         $line = $preparedQuery->fetch();
         return new Publication(
-                $line["title"],
-                $line["img_url"],
-                $line["content"],
-                new Category($line["name"], $line["category_id"]),
-                $line["creation_date"],
-                $line["comment_count"],
-                $line["id"]
-            );
-       
+            $line["title"],
+            $line["img_url"],
+            $line["content"],
+            new Category($line["name"], $line["category_id"]),
+            $line["creation_date"],
+            $line["comment_count"],
+            $line["id"]
+        );
+
     }
 
     public function getPublicationSum(): int
@@ -76,6 +76,21 @@ class PublicationRepo
         $preparedQuery->bindValue(":category_id", $publication->getCategory()->getId());
 
         $preparedQuery->execute();
+    }
+
+    public function update(int $id, Publication $publication)
+    {
+        $connection = Database::connect();
+
+        $preparedQuery = $connection->prepare("UPDATE publication SET title = :titre , content = :content ,
+        category_id = :category_id where id = :id");
+        $preparedQuery->bindValue(":titre", $publication->getTitle());
+        $preparedQuery->bindValue(":content", $publication->getContent());
+        $preparedQuery->bindValue(":category_id", $publication->getCategory()->getId());
+        $preparedQuery->bindValue(":id", $id);
+
+        $preparedQuery->execute();
+
     }
 
     public function addCommentCount($id)

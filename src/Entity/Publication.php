@@ -46,6 +46,8 @@ class Publication
 
     public function setCommentAmount(int $commentAmount): void {$this->commentAmount = $commentAmount;}
 
+    public function setCategory(Category $category): void {$this->category = $category;}
+
 
 
 
