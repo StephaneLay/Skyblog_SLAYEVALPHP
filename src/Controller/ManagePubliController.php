@@ -10,7 +10,6 @@ use Hb\SkyblogSlayevalphp\View\ManagePubliView;
 class ManagePubliController extends BaseController{
     protected function doGet(): \Hb\SkyblogSlayevalphp\Core\BaseView{
         $publiRepo = new PublicationRepo();
-        $categoryRepo = new CategoryRepo;
 
         return new ManagePubliView( $publiRepo->findAll());
     }

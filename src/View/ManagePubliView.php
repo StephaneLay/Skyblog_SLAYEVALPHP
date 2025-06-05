@@ -22,7 +22,7 @@ class ManagePubliView extends BaseView{
             <p>'.$publication->getCategory()->getName().'</p>
             <p>'.$publication->getCreationDate().'</p>
             <p>'.$publication->getCommentAmount().'</p>
-            <a href="#">Modifier</a></div>';
+            <a href="/update-publi?id='.$publication->getId().'">Modifier</a></div>';
         }
             
         echo '<button>Supprimer selection</button></form>';

@@ -31,7 +31,30 @@ class PublicationRepo
         return $list;
     }
 
-    public function getPublicationSum(): int{
+    public function findById($id): Publication
+    {
+        $connection = Database::connect();
+
+        $preparedQuery = $connection->prepare("SELECT * from publication LEFT JOIN category ON publication.category_id = category.id
+        where publication.id = :id");
+        $preparedQuery->bindValue(":id",$id);
+        $preparedQuery->execute();
+
+        $line = $preparedQuery->fetch();
+        return new Publication(
+                $line["title"],
+                $line["img_url"],
+                $line["content"],
+                new Category($line["name"], $line["category_id"]),
+                $line["creation_date"],
+                $line["comment_count"],
+                $line["id"]
+            );
+       
+    }
+
+    public function getPublicationSum(): int
+    {
         $connection = Database::connect();
 
         $preparedQuery = $connection->prepare("SELECT Count(*) AS count from publication");
@@ -55,12 +78,13 @@ class PublicationRepo
         $preparedQuery->execute();
     }
 
-    public function addCommentCount($id){
+    public function addCommentCount($id)
+    {
         $connection = Database::connect();
 
-         $preparedQuery = $connection->prepare('UPDATE publication SET comment_count = comment_count +1 where id = :id');
-         $preparedQuery->bindValue(":id",$id);
-         $preparedQuery->execute();
+        $preparedQuery = $connection->prepare('UPDATE publication SET comment_count = comment_count +1 where id = :id');
+        $preparedQuery->bindValue(":id", $id);
+        $preparedQuery->execute();
 
     }
 
@@ -71,7 +95,7 @@ class PublicationRepo
 
         $preparedQuery = $connection->prepare("SELECT * from publication LEFT JOIN category ON publication.category_id = category.id
         where category_id = :categoryId");
-        $preparedQuery->bindValue(":categoryId",$categoryId);
+        $preparedQuery->bindValue(":categoryId", $categoryId);
         $preparedQuery->execute();
 
         foreach ($preparedQuery->fetchAll() as $line) {
@@ -89,13 +113,14 @@ class PublicationRepo
         return $list;
     }
 
-    public function filterResults(string $search){
+    public function filterResults(string $search)
+    {
         $list = [];
         $connection = Database::connect();
 
         $preparedQuery = $connection->prepare("select * from publication LEFT JOIN category ON publication.category_id = category.id where title 
         LIKE :search OR content LIKE :search");
-        $preparedQuery->bindValue("search","%".$search."%");
+        $preparedQuery->bindValue("search", "%" . $search . "%");
         $preparedQuery->execute();
 
         foreach ($preparedQuery->fetchAll() as $line) {
