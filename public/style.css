@@ -1,9 +1,7 @@
 :root {
     font-size: 10px;
-    --main-background-color : rgb(148, 97, 97);
-    --side-menu-color: rgb(170, 52, 127);
-    --publi-background--color: rgb(245, 182, 193);
-    --publi-secondary-color : rgb(154, 28, 28);
+    
+
     font-family: "Verdana", "Arial", "Helvetica", sans-serif;
 }
 

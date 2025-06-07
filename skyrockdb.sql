@@ -37,4 +37,18 @@ CREATE TABLE comment (
     Foreign Key (publication_id) REFERENCES publication(id)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS theme;
+
+CREATE table theme(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    main_bgcolor CHAR(7),
+    side_bgcolor CHAR(7),
+    publi_bgcolor CHAR(7),
+    secondarypubli_color CHAR(7),
+    is_active BOOLEAN
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+INSERT INTO theme (main_bgcolor,side_bgcolor,publi_bgcolor,secondarypubli_color,is_active) VALUES
+("#946161","#aa347f","#f5b8c3","#9a1c1c",TRUE);
+
 
