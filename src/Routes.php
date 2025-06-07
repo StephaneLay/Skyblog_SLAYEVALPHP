@@ -7,6 +7,7 @@ use Hb\SkyblogSlayevalphp\Controller\AddPubliController;
 use Hb\SkyblogSlayevalphp\Controller\ComListController;
 use Hb\SkyblogSlayevalphp\Controller\HomeController;
 use Hb\SkyblogSlayevalphp\Controller\ManagePubliController;
+use Hb\SkyblogSlayevalphp\Controller\ThemeController;
 use Hb\SkyblogSlayevalphp\Controller\UpdatePubliController;
 
 class Routes{
@@ -17,7 +18,8 @@ class Routes{
             "/list-coms" => new ComListController(),
             "/new-publi" => new AddPubliController(),
             "/manage-publi" => new ManagePubliController(),
-            "/update-publi" => new UpdatePubliController()
+            "/update-publi" => new UpdatePubliController(),
+            "/theme" => new ThemeController()
 
 
         ];

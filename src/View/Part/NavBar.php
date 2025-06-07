@@ -49,6 +49,7 @@ class NavBar
                 <a href="/">Home</a>
                 <a href="/new-publi">Ajouter un article</a>
                 <a href="/manage-publi">Gerer les publications</a>
+                <a href="/theme">Changer theme</a>
             </div>
         </header>
         <?php
