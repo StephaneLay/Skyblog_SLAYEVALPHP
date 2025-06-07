@@ -46,7 +46,7 @@ class UpdatePubliController extends BaseController
          if(isset($_POST["category"]) && !empty(trim($_POST["category"]))){
             $publication->setCategory($categoryRepo->getCategoryById($_POST["category"]));
         }
-
+        $publication->setLastUpdate(new \DateTime());
         $publiRepo->update($_GET["id"],$publication);
         return new MessageView("Article modifié !");
 

@@ -20,7 +20,7 @@ class ManagePubliView extends BaseView{
             <input type="checkbox" id="'.$publication->getTitle().'" name="'.$publication->getTitle().'" value="'.$publication->getId().'" >
             <label for="'.$publication->getTitle().'">'.$publication->getTitle().'</label>
             <label for="'.$publication->getTitle().'">'.$publication->getCategory()->getName().'</label>
-            <label for="'.$publication->getTitle().'">'.$publication->getCreationDate().'</label>
+            <label for="'.$publication->getTitle().'">'.$publication->getCreationDate()->format('Y-m-d H:i:s').'</label>
             <label for="'.$publication->getTitle().'">'.$publication->getCommentAmount().'</label>
             <a href="/update-publi?id='.$publication->getId().'">Modifier</a></div>';
         }

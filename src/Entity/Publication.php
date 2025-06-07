@@ -13,8 +13,8 @@ class Publication
 
     private string $content;
 
-    private string $creationDate;
-    private string $lastUpdate;
+    private DateTime $creationDate;
+    private ?DateTime $lastUpdate;
 
     private int $commentAmount;
 
@@ -27,9 +27,9 @@ class Publication
 
 	public function getContent(): string {return $this->content;}
 
-	public function getCreationDate(): string {return $this->creationDate;}
+	public function getCreationDate(): DateTime {return $this->creationDate;}
 
-	public function getLastUpdate(): string {return $this->lastUpdate;}
+	public function getLastUpdate(): ?DateTime {return $this->lastUpdate;}
 
 	public function getCategory(): Category {return $this->category;}
 	public function getCommentAmount(): int {return $this->commentAmount;}
@@ -42,7 +42,9 @@ class Publication
 
 	public function setContent(string $content): void {$this->content = $content;}
 
-	public function setCreationDate(string $creationDate): void {$this->creationDate = $creationDate;}
+	public function setCreationDate(DateTime $creationDate): void {$this->creationDate = $creationDate;}
+
+    public function setLastUpdate(DateTime $lastUpdate): void {$this->lastUpdate = $lastUpdate;}
 
     public function setCommentAmount(int $commentAmount): void {$this->commentAmount = $commentAmount;}
 
@@ -51,14 +53,14 @@ class Publication
 
 
 
-    public function __construct(string $title, string $img_url, string $content, Category $category,$creationDate,int $commentAmount, ?int $id = null)
+    public function __construct(string $title, string $img_url, string $content, Category $category,DateTime $creationDate,int $commentAmount, ?int $id = null,?DateTime $lastUpdate = null)
     {
         $this->title = $title;
         $this->img_url = $img_url;
         $this->content = $content;
         $this->category = $category;
         $this->creationDate = $creationDate;
-        $this->lastUpdate = $creationDate;
+        $this->lastUpdate = $lastUpdate;
         $this->commentAmount = $commentAmount;
         $this->id = $id;
     }

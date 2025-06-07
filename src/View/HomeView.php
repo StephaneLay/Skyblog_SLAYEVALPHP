@@ -87,8 +87,12 @@ class HomeView extends BaseView
                     echo '
                 </div>
                 <div class="publication-footer">
-                    <p>Posté le ' . $publication->getCreationDate() . '</p>
-                    <p>Modifié le ' . $publication->getLastUpdate() . '</p>
+                    <p>Posté le ' . $publication->getCreationDate()->format('Y-m-d H:i:s') . '</p>';
+                    if ($publication->getLastUpdate()) {
+                        echo '<p>Modifié le ' . $publication->getLastUpdate()->format('Y-m-d H:i:s') . '</p>';
+                    }
+                    
+                   echo ' 
                 </div>
                 
             </article>';

@@ -23,7 +23,7 @@ class ComsListView extends BaseView
             <article class="com">
                 <h2>'.$comment->getUsername().'</h2>
                 <p class="com-content">'.$comment->getContent().'</p>
-                <p class="com-date">'.$comment->getCreationDate().'</p>
+                <p class="com-date">'.$comment->getCreationDate()->format('Y-m-d H:i:s').'</p>
             </article>';
 
         }
