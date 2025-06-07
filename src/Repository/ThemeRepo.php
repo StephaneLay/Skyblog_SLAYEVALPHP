@@ -18,13 +18,14 @@ class ThemeRepo{
 
         $connection = Database::connect();
 
-        $preparedQuery = $connection->prepare("INSERT INTO theme (main_bgcolor,side_bgcolor,publi_bgcolor,secondarypubli_color) 
-        VALUES (:main,:side,:publibg,:publisecond)");
+        $preparedQuery = $connection->prepare("INSERT INTO theme (main_bgcolor,side_bgcolor,publi_bgcolor,secondarypubli_color,is_active) 
+        VALUES (:main,:side,:publibg,:publisecond,:isactive)");
 
         $preparedQuery->bindValue(":main", $theme->getMainBgColor());
         $preparedQuery->bindValue(":side", $theme->getSideBgColor());
         $preparedQuery->bindValue(":publibg", $theme->getPubliBgColor());
         $preparedQuery->bindValue(":publisecond", $theme->getSecondaryPubliColor());
+        $preparedQuery->bindValue(":isactive", $theme->getIsActive());
         $preparedQuery->execute();
     }
 
