@@ -219,3 +219,44 @@ main {
     justify-content: space-around;
 }
 
+/* THEME VIEW */
+
+.theme-container{
+    display: flex;
+    padding: 2rem;
+}
+
+.active-theme{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid gold;
+}
+
+.theme{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid gray;
+}
+
+.theme-line{
+    display: flex;
+    line-height: 2rem;
+    
+    /* width : 100%; */
+}
+
+.theme-color{
+    width: 15rem;
+}
+
+.add-theme-form{
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    padding: 2rem;
+}
+
+
+
+
+

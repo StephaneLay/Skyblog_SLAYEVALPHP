@@ -20,7 +20,7 @@ class Header
             echo '
             <style>
                 :root{
-                    --main-background-color :'.$theme->getMainBgColor().';
+                --main-background-color :'.$theme->getMainBgColor().';
                 --side-menu-color:'.$theme->getSideBgColor().';
                 --publi-background--color:'.$theme->getPubliBgColor().';
                 --publi-secondary-color :'.$theme->getSecondaryPubliColor().';
